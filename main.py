@@ -5,9 +5,9 @@ from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-  msg_body = 'Farhan IS HERE'
+@app.route('/<msg_body>')
+def hello_world(msg_body):
+  #msg_body = 'Farhan IS HERE'
   SUBJECT = 'NOTIFY'
   msg = MIMEMultipart()
   msg.attach(MIMEText(msg_body,'plain'))
@@ -17,7 +17,7 @@ def hello_world():
   server.starttls()
   server.ehlo()
   server.login("aatish.jain@ellicium.com","9921610239")
-  server.sendmail("aatish.jain@ellicium.com",['aatish.jain@ellicium.com','shubham.shirude@ellicium.com','sonali.dorle@ellicium.com'],message)
+  server.sendmail("aatish.jain@ellicium.com",['aatish.jain@ellicium.com','shubham.shirude@ellicium.com'],message)
   server.quit()
   return msg_body
 
