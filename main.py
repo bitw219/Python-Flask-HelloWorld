@@ -5,9 +5,9 @@ from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 
-@app.route('/<msg_body>')
+@app.route('/')
 def hello_world():
-  #msg_body = 'Farhan IS HERE'
+  msg_body = 'Farhan IS HERE'
   SUBJECT = 'NOTIFY'
   msg = MIMEMultipart()
   msg.attach(MIMEText(msg_body,'plain'))
